@@ -1,0 +1,20 @@
+.titulo {
+  line-height: 40px;
+  vertical-align: bottom;
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #105982;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.resposta {
+  padding: 10px;
+}
+
+.novo{
+  width: 50%;
+  display: inline-flex;
+  justify-content: flex-end
+}

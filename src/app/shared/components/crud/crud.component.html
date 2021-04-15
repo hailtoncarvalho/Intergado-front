@@ -1,0 +1,74 @@
+<p>
+  <img src="../../../../assets/images/svg/zoology.svg"
+       style="width: 40px;">
+  <span class="titulo">Entrevista Intergado</span>
+</p>
+
+
+<div>
+  <p>1. Abra o link abaixo para visualizar a documentação da API no Swagger:</p>
+
+  <div class="resposta"><a href="http://localhost:5050/api/swagger-ui.html"
+       target="_blank">Swagger CRUD</a></div>
+
+
+  <p>2. Implemente as seguintes funções:</p>
+
+
+  <p>2.1. Liste abaixo o retorno do endpoint que trará a lista de animais da consulta no Swagger;</p>
+
+
+  <p>2.2. Insira um novo animal usando o endpoint de inserção e, em seguida, atualize a lista anterior;</p>
+
+
+  <p>2.3. Crie um link na frente de cada item da lista e, usando o endpoint "excluir", remova o registro quando o link
+    for clicado. Atualize a lista em seguida.</p>
+
+</div>
+
+
+<!--Respostas-->
+<section class="resposta">
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Lista de animais</h4>
+      </div>
+      <div  class="float-right">
+       <form class="form-inline" [formGroup] = "form">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="inputPassword2" class="sr-only">Tag</label>
+          <input type="text" class="form-control" id="tag" formControlName = "tag" placeholder="Inserir Tag">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="inputPassword2" class="sr-only">Manejo</label>
+          <input type="text" class="form-control" id="manejo" formControlName = "manejo" placeholder=" Manejo">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" (click)="onSubmit()">Novo Animal</button>
+      </form>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Manejo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let animal of animais$ | async">
+            <td>{{ animal.tag }}</td>
+            <td>{{ animal.manejo }}</td>
+            <td>
+              <span class="float-right">
+                <button type="button" class="btn btn-danger" (click)="onDelete(animal)">Excluir</button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
